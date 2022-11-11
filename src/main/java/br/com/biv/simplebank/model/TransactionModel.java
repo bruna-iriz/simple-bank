@@ -13,7 +13,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "TB_TRANSACTIONS")
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class TransactionsModel {
+public class TransactionModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

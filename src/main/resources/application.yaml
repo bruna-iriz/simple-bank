@@ -13,3 +13,7 @@ spring:
         show-sql: true
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         naming_strategy: org.hibernate.cfg.ImprmovedNamingStrategy:app
+#BugFix config do Springfox vs MVC
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
