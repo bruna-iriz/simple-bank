@@ -1,4 +1,4 @@
-package br.com.biv.simplebank.model.enums;
+package br.com.biv.simplebank.domain.model.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

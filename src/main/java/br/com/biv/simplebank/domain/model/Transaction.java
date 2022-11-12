@@ -1,6 +1,7 @@
-package br.com.biv.simplebank.model;
+package br.com.biv.simplebank.domain.model;
 
-import br.com.biv.simplebank.model.enums.OperationsType;
+import br.com.biv.simplebank.domain.model.enums.OperationsType;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
@@ -13,7 +14,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "TB_TRANSACTIONS")
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class TransactionModel {
+public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,12 +24,14 @@ public class TransactionModel {
     @Column(name = "ACCOUNT_ID", nullable = false)
     private String accountId;
     @Column(name = "OPERATION_TYPE", nullable = false)
-//    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private OperationsType operationType;
     @Column(name = "AMOUNT")
     private BigDecimal amount;
     @Column(name = "EVENT_DATE", nullable = false)
-//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime eventDate;
 
+    @ManyToOne(optional = false)
+    private Account account;
 }
