@@ -8,7 +8,6 @@ import lombok.Data;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Data
 @Entity
@@ -19,18 +18,18 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "TRANSACTION_ID", nullable = false, unique = true)
-    private UUID transactionId;
+    private Long transactionId;
 
     @Column(name = "ACCOUNT_ID", nullable = false)
-    private String accountId;
+    private Long accountId;
     @Column(name = "OPERATION_TYPE", nullable = false)
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     private OperationsType operationType;
     @Column(name = "AMOUNT")
     private BigDecimal amount;
     @Column(name = "EVENT_DATE", nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
-    private LocalDateTime eventDate;
+    private LocalDateTime eventDate = LocalDateTime.now();
 
     @ManyToOne(optional = false)
     private Account account;

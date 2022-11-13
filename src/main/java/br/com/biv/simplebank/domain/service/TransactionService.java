@@ -1,5 +1,7 @@
 package br.com.biv.simplebank.domain.service;
 
-public interface TransactionService {
+import br.com.biv.simplebank.domain.model.Transaction;
 
+public interface TransactionService {
+    Transaction save(Transaction transaction);
 }

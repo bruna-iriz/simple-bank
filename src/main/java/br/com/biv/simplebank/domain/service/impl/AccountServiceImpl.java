@@ -7,8 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -18,7 +18,12 @@ public class AccountServiceImpl implements AccountService {
     AccountRepository accountRepository;
 
     @Override
-    public Optional<Account> findById(UUID accountId) {
+    public List<Account> listAll() {
+        return accountRepository.findAll();
+    }
+
+    @Override
+    public Optional<Account> findById(Long accountId) {
         return accountRepository.findById(accountId);
     }
 
