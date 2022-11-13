@@ -3,6 +3,7 @@ package br.com.biv.simplebank.domain.model;
 import br.com.biv.simplebank.domain.model.enums.OperationsType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
+@Builder
 @Entity
 @Table(name = "TB_TRANSACTIONS")
 @JsonInclude(JsonInclude.Include.NON_NULL)
