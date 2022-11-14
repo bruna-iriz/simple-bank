@@ -4,15 +4,15 @@ import br.com.biv.simplebank.controller.resource.TransactionRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import static br.com.biv.simplebank.domain.model.enums.OperationsType.COMPRA_A_VISTA;
-import static br.com.biv.simplebank.domain.model.enums.OperationsType.SAQUE;
+import static br.com.biv.simplebank.domain.model.enums.OperationsType.*;
 
 @Service
 @AllArgsConstructor
 public class ValidateOperationType {
 
     public boolean isNegativePayment(TransactionRequest transactionRequest) {
-        return transactionRequest.getOperationType().equals(COMPRA_A_VISTA) || transactionRequest.getOperationType().equals(SAQUE);
+        final var operationType = transactionRequest.getOperationType();
+        return operationType.equals(SAQUE) || operationType.equals(COMPRA_A_VISTA) || operationType.equals(COMPRA_PARCELADA);
     }
 }
 
