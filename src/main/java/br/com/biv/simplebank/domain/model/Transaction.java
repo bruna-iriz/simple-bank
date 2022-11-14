@@ -3,8 +3,10 @@ package br.com.biv.simplebank.domain.model;
 import br.com.biv.simplebank.domain.model.enums.OperationsType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -14,6 +16,8 @@ import java.time.LocalDateTime;
 @Builder
 @Entity
 @Table(name = "TB_TRANSACTIONS")
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Transaction {
 
