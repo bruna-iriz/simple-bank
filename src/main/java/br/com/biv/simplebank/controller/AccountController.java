@@ -28,11 +28,11 @@ public class AccountController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public AccountResponse createAccount(@RequestBody AccountRequest accountRequest) {
-        log.info("[POST][REQUEST]: Creating account {}", accountRequest);
+        log.info("[POST][REQUEST]: Creating account {}", accountRequest.getDocumentNumber());
         Account account = accountToAccountResourceMapper.convertToAccount(accountRequest);
         Account accountSaved = accountService.save(account);
         AccountResponse accountResponse = accountToAccountResourceMapper.convertToAccountResponse(accountSaved);
-        log.info("[POST][RESPONSE]: Account create with success, accountId {}", accountSaved.getAccountId());
+        log.info("[POST][RESPONSE]: Account create with success, accountId {}.", accountSaved.getAccountId());
         return accountResponse;
     }
 
@@ -41,7 +41,7 @@ public class AccountController {
         log.info("[GET-BY-ID][REQUEST]: Searching for accountId {}", accountId);
         Optional<Account> accountById = accountService.findById(accountId);
         final AccountResponse accountResponse = accountToAccountResourceMapper.convertToAccountResponse(accountById.get());
-        log.info("[GET-BY-ID][RESPONSE] Account Information Found {}", accountResponse);
+        log.info("[GET-BY-ID][RESPONSE] Account information found.");
         return ResponseEntity.ok(accountResponse);
     }
 //

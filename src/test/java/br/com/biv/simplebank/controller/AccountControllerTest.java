@@ -28,6 +28,8 @@ class AccountControllerTest {
     AccountToAccountResourceMapper accountToAccountResourceMapper;
     @Autowired
     MockMvc mockMvc;
+    @Autowired
+    ObjectMapper mapper;
 
     @Test
     void shouldCreateMockMvc() {
@@ -35,9 +37,9 @@ class AccountControllerTest {
     }
 
     @Test
-    public void shouldReturnSuccess_WhenFindConversationById() throws Exception {
+    public void shouldReturnSuccess_WhenGetConversationById() throws Exception {
 
-        final Account account = Account
+        final var account = Account
                 .builder()
                 .accountId(1234L)
                 .documentNumber("909876543212")

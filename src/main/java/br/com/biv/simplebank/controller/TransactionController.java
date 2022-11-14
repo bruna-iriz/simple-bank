@@ -29,7 +29,7 @@ public class TransactionController {
         Transaction transaction = transactionToTransactionResourceMapper.convertToTransaction(transactionRequest);
         Transaction transactionSaved = transactionService.save(transaction);
         TransactionResponse transactionResponse = transactionToTransactionResourceMapper.convertToTransactionResponse(transactionSaved);
-        log.info("[POST][RESPONSE]: Transaction create with success, transactiontId {}", transactionSaved.getTransactionId());
+        log.info("[POST][RESPONSE]: Transaction create with success.");
         return transactionResponse;
     }
 
