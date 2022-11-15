@@ -39,7 +39,7 @@ class AccountControllerTest {
     @Test
     public void shouldReturnSuccess_WhenGetAccountById() throws Exception {
 
-        final var account = Account
+        final Account account = Account
                 .builder()
                 .accountId(1234L)
                 .documentNumber("909876543212")

@@ -43,7 +43,7 @@ class TransactionControllerTest {
                 .documentNumber("909876543212")
                 .build();
 
-        final var transaction = Transaction
+        final Transaction transaction = Transaction
                 .builder()
                 .accountId(1234L)
                 .account(build)
@@ -54,7 +54,7 @@ class TransactionControllerTest {
     @Test
     public void shouldReturnSuccess_WhenCreateTransaction() throws Exception {
 
-        final var transaction = Transaction
+        final Transaction transaction = Transaction
                 .builder()
                 .accountId(Account.builder().build().getAccountId())
                 .operationType(OperationsType.PAGAMENTO)
@@ -67,7 +67,7 @@ class TransactionControllerTest {
                 .content("{" +
                         "\"account_id\": 1," +
                         "\"operation_type_id\": 1," +
-                        "\"amount\": 123.45" +
+                        "\"amount\": 200.00" +
                         "}"))
                 .andExpect(status().isCreated());
     }

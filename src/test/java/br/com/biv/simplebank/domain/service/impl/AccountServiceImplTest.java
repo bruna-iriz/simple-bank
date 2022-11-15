@@ -26,7 +26,7 @@ class AccountServiceImplTest {
 
     @Test
     public void shouldGetById() {
-        final var account = Account
+        final Account account = Account
                 .builder()
                 .accountId(1L)
                 .documentNumber("123")
