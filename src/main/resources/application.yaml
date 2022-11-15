@@ -1,19 +1,30 @@
+
 spring:
   datasource:
     username: user
     password: biv@user
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/db_bank?createDatabaseIfNotExist=true&autoReconnect=true&useUnicode=true&charactedEncoding=UTF-8&useTimezone=true&serverTimezone=UTC
+#    url: jdbc:mysql://localhost:3308/db_bank?createDatabaseIfNotExist=true&&useUnicode=true&charactedEncoding=UTF-8&useTimezone=true&serverTimezone=UTC
+    tomcat:
+      max-wait: 20000
   jpa:
+    generate-ddl: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
       dialect: org.hibernate.dialect.MySQL8Dialect
     properties:
       hibernate:
         show-sql: true
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         naming_strategy: org.hibernate.cfg.ImprmovedNamingStrategy:app
+
+
 #BugFix config do Springfox vs MVC
   mvc:
     pathmatch:
       matching-strategy: ant-path-matcher
+
+server:
+  error:
+    include-message: always

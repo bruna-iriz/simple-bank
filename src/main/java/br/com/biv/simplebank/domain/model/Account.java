@@ -21,6 +21,8 @@ import java.util.Set;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Account implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ACCOUNT_ID", unique = true)

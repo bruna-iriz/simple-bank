@@ -37,7 +37,7 @@ class AccountControllerTest {
     }
 
     @Test
-    public void shouldReturnSuccess_WhenGetConversationById() throws Exception {
+    public void shouldReturnSuccess_WhenGetAccountById() throws Exception {
 
         final var account = Account
                 .builder()

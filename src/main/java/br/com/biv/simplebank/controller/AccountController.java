@@ -37,14 +37,14 @@ public class AccountController {
     }
 
     @GetMapping("/{accountId}")
-    public ResponseEntity<AccountResponse> getById(@PathVariable(value = "accountId", required = true) Long accountId) {
+    public AccountResponse getById(@PathVariable(value = "accountId", required = true) Long accountId) {
         log.info("[GET-BY-ID][REQUEST]: Searching for accountId {}", accountId);
         Optional<Account> accountById = accountService.findById(accountId);
         final AccountResponse accountResponse = accountToAccountResourceMapper.convertToAccountResponse(accountById.get());
         log.info("[GET-BY-ID][RESPONSE] Account information found.");
-        return ResponseEntity.ok(accountResponse);
+        return accountResponse;
     }
-//
+
 //    @GetMapping
 //    public ResponseEntity<List<AccountResponse>> listAll() {
 //        List<Account> accounts = accountService.listAll();

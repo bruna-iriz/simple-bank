@@ -4,8 +4,8 @@ import br.com.biv.simplebank.controller.mapper.TransactionToTransactionResourceM
 import br.com.biv.simplebank.domain.model.Account;
 import br.com.biv.simplebank.domain.model.Transaction;
 import br.com.biv.simplebank.domain.model.enums.OperationsType;
-import br.com.biv.simplebank.domain.service.AccountService;
 import br.com.biv.simplebank.domain.service.TransactionService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -32,6 +32,23 @@ class TransactionControllerTest {
     @Test
     void shouldCreateMockMvc() {
         assertNotNull(mockMvc);
+    }
+
+
+    @BeforeEach
+    void build() {
+        final Account build = Account
+                .builder()
+                .accountId(1234L)
+                .documentNumber("909876543212")
+                .build();
+
+        final var transaction = Transaction
+                .builder()
+                .accountId(1234L)
+                .account(build)
+                .build();
+        transactionService.save(transaction);
     }
 
     @Test

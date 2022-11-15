@@ -32,5 +32,4 @@ public class TransactionController {
         log.info("[POST][RESPONSE]: Transaction create with success.");
         return transactionResponse;
     }
-
 }

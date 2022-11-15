@@ -3,7 +3,7 @@ package br.com.biv.simplebank.controller.mapper;
 import br.com.biv.simplebank.controller.resource.TransactionRequest;
 import br.com.biv.simplebank.controller.resource.TransactionResponse;
 import br.com.biv.simplebank.domain.model.Transaction;
-import br.com.biv.simplebank.domain.service.ValidateOperationType;
+import br.com.biv.simplebank.domain.service.util.ValidateOperationType;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;

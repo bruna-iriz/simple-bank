@@ -1,4 +1,4 @@
-package br.com.biv.simplebank.domain.service;
+package br.com.biv.simplebank.domain.service.util;
 
 import br.com.biv.simplebank.controller.resource.TransactionRequest;
 import lombok.AllArgsConstructor;

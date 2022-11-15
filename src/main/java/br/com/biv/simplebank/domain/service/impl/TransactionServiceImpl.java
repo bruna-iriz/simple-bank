@@ -2,7 +2,7 @@ package br.com.biv.simplebank.domain.service.impl;
 
 import br.com.biv.simplebank.domain.model.Transaction;
 import br.com.biv.simplebank.domain.repository.TransactionRepository;
-import br.com.biv.simplebank.domain.service.ValidateOperationType;
+import br.com.biv.simplebank.domain.service.util.ValidateOperationType;
 import br.com.biv.simplebank.domain.service.TransactionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

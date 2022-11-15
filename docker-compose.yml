@@ -1,0 +1,46 @@
+version: '3.3'
+networks:
+  api-network:
+    driver: bridge
+
+services:
+  simple-bank:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: simple-bank/api
+    environment:
+      ADDITIONAL_OPTS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+      PROFILE: dev
+      DDL_AUTO: update
+      JDBC_URL: jdbc:mysql://mysql-accounts:3306/db_bank
+      JDBC_DRIVER: com.mysql.jdbc.Driver
+      DATASOURCE_USERNAME: user
+      DATASOURCE_PASSWORD: biv@user
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    networks:
+      - api-network
+    depends_on:
+      - db_bank
+    links:
+      - db_bank
+
+  db_bank:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: froot
+      MYSQL_DATABASE: db_bank
+      MYSQL_USER: user
+      MYSQL_PASSWORD: biv@user
+      JDBC_URL: jdbc:mysql://db_bank:3306/app?createDatabaseIfNotExist=true&autoReconnect=true&useUnicode=true&charactedEncoding=UTF-8&useTimezone=true&serverTimezone=UTC
+      JDBC_DRIVER: com.mysql.cj.jdbc.Driver
+    ports:
+      - "3306:3306"
+    command: --lower_case_table_names=2
+    networks:
+      - api-network
+    volumes:
+      - ./docker/volume_mysql:/var/lib/mysql
