@@ -1,7 +1,9 @@
-## API Conversations Batch
+## API Simple Bank
 
-API criada com objetivo de ler registros de arquivo (csv), armazenar os dados em um banco de dados e gerenciar
-conversas.
+API de criação de contas e gerenciamento operações financeiras.
+Onde cada operação realizada deve ser vinculada a um determinado cliente.
+
+O sistema valida o tipo de operação realizada e adequa o saldo conforme esperado, sendo valor positivo para pagamentos ou saldo negativo para compras e saque.
 
 ### Tecnologias utilizadas
 
@@ -19,7 +21,6 @@ Realizar o clone do projeto:
 ```sh
 $ git clone https://github.com/bruna-iriz/simple-bank.git
 ```
-
 Executar o clean e instalação do Maven na pasta do projeto:
 
 ```sh
@@ -39,8 +40,8 @@ Endpoints:
 | HTTP | ENDPOINT   | DESCRIÇÃO - STATUS |
 | ------     | ------ | ------ |
 |POST   |http://localhost:8080/accounts | Cadastrar uma nova conta de cliente. (OK) |
-|GET    |http://localhost:8080/accounts/{id} | Buscar um cliente através do id  (OK) |
-|POST   |http://localhost:8080/transactions| Efetiva transações para um cliente existente (OK) |
+|GET    |http://localhost:8080/accounts/{id} | Buscar um cliente através do id.  (OK) |
+|POST   |http://localhost:8080/transactions| Efetiva transações para um cliente existente. (OK) |
 
 ### Swagger
 
