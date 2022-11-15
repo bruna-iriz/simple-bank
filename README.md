@@ -50,7 +50,7 @@ Endpoints:
 | Swagger - Account | http://localhost:8080/swagger-ui.html#/account-controller |
 | Swagger - Transactions | http://localhost:8080/swagger-ui.html#/transaction-controller |
 
-- A coleção com as chamadas através do Postman está no diretório: ```sh./simplebank/postman```
+- A coleção com as chamadas através do Postman está no diretório: ```./simplebank/postman```
 
 ### Coverage
 
