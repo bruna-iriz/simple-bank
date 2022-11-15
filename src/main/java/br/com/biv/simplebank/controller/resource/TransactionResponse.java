@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TransactionResponse {
-    private Long accountId;
+    private Long transactionId;
     private OperationsType operationType;
     private BigDecimal amount;
     private LocalDateTime eventDate;
